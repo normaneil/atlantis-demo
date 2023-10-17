@@ -1,0 +1,233 @@
+<!-- https://remotestaff.teramind.co/login?sso=samlp&meta=1 -->
+<html>
+  <body>
+    <iframe
+      id="tm-iframe"
+      width="600"
+      height="400"
+      src="https://remotestaff.teramind.co/login?sso=samlp"
+    >
+    </iframe>
+    <button
+      onclick="document.getElementById('tm-iframe').contentWindow.postMessage({
+ type: 'player.switch',
+ data: {
+ agentId: 120,
+ computerId: 6,
+ timestamp: 1681929594,
+ }
+}, 'https://remotestaff.teramind.co');"
+    >
+      Open history
+    </button>
+    <button
+      onclick="document.getElementById('tm-iframe').contentWindow.postMessage({
+ type: 'player.switch',
+ data: {
+ agentId: 120,
+ computerId: 6,
+ timestamp: null,
+ }
+}, 'https://remotestaff.teramind.co');"
+    >
+      Open live
+    </button>
+    <button
+      onclick="document.getElementById('tm-iframe').contentWindow.postMessage({
+ type: 'player.setTimestamp',
+ data: 1681929694,
+}, 'https://remotestaff.teramind.co');"
+    >
+      Set timestamp
+    </button>
+    <button
+      onclick="document.getElementById('tm-iframe').contentWindow.postMessage({
+ type: 'player.setTimestamp',
+ data: null,
+}, 'https://remotestaff.teramind.co');"
+    >
+      Set timestamp null
+    </button>
+    <button
+      onclick="document.getElementById('tm-iframe').contentWindow.postMessage({
+ type: 'player.setPlay',
+ data: true,
+}, 'https://remotestaff.teramind.co');"
+    >
+      Play
+    </button>
+    <button
+      onclick="document.getElementById('tm-iframe').contentWindow.postMessage({
+ type: 'player.setPlay',
+ data: false,
+}, 'https://remotestaff.teramind.co');"
+    >
+      Pause
+    </button>
+    <button
+      onclick="document.getElementById('tm-iframe').contentWindow.postMessage({
+ type: 'player.setAudio',
+ data: false,
+}, 'https://remotestaff.teramind.co');"
+    >
+      Mute
+    </button>
+    <button
+      onclick="document.getElementById('tm-iframe').contentWindow.postMessage({
+ type: 'player.setAudio',
+ data: true,
+}, 'https://remotestaff.teramind.co');"
+    >
+      Unmute
+    </button>
+    <button
+      onclick="document.getElementById('tm-iframe').contentWindow.postMessage({
+ type: 'player.setSpeed',
+ data: -4,
+}, 'https://remotestaff.teramind.co');"
+    >
+      Set speed -4
+    </button>
+    <button
+      onclick="document.getElementById('tm-iframe').contentWindow.postMessage({
+ type: 'player.setSpeed',
+ data: 8,
+}, 'https://remotestaff.teramind.co');"
+    >
+      Set speed 8
+    </button>
+    <button
+      onclick="document.getElementById('tm-iframe').contentWindow.postMessage({
+ type: 'player.stepForward',
+}, 'https://remotestaff.teramind.co');"
+    >
+      Step Forward
+    </button>
+    <button
+      onclick="document.getElementById('tm-iframe').contentWindow.postMessage({
+ type: 'player.stepBackward',
+}, 'https://remotestaff.teramind.co');"
+    >
+      Step Backward
+    </button>
+    <button
+      onclick="document.getElementById('tm-iframe').contentWindow.postMessage({
+ type: 'player.sendCtrlAltDel',
+}, 'https://remotestaff.teramind.co');"
+    >
+      Send CtrlAltDel
+    </button>
+    <button
+      onclick="document.getElementById('tm-iframe').contentWindow.postMessage({
+ type: 'player.setFreezeInput',
+ data: true,
+}, 'https://remotestaff.teramind.co');"
+    >
+      Freeze
+    </button>
+    <button
+      onclick="document.getElementById('tm-iframe').contentWindow.postMessage({
+ type: 'player.setFreezeInput',
+12 / 12
+ data: false,
+}, 'https://remotestaff.teramind.co');"
+    >
+      Unfreeze
+    </button>
+    <button
+      onclick="document.getElementById('tm-iframe').contentWindow.postMessage({
+ type: 'player.setCapture',
+ data: true,
+}, 'https://remotestaff.teramind.co');"
+    >
+      Control
+    </button>
+    <button
+      onclick="document.getElementById('tm-iframe').contentWindow.postMessage({
+ type: 'player.setCapture',
+ data: false,
+}, 'https://remotestaff.teramind.co');"
+    >
+      Uncontrol
+    </button>
+    <button
+      onclick="document.getElementById('tm-iframe').contentWindow.postMessage({
+ type: 'player.getInfo',
+}, 'https://remotestaff.teramind.co');"
+    >
+      Info
+    </button>
+    <button
+      onclick="document.getElementById('tm-iframe').contentWindow.postMessage({
+ type: 'player.setControls',
+ data: {
+ header: false,
+ }
+}, 'https://remotestaff.teramind.co');"
+    >
+      Hide Header
+    </button>
+    <button
+      onclick="document.getElementById('tm-iframe').contentWindow.postMessage({
+ type: 'player.setControls',
+ data: {
+ header: true,
+ }
+}, 'https://remotestaff.teramind.co');"
+    >
+      Show Header
+    </button>
+  </body>
+  <button
+    onclick="document.getElementById('tm-iframe').contentWindow.postMessage({
+ type: 'player.setControls',
+ data: {
+ footer: false,
+ }
+}, 'https://remotestaff.teramind.co');"
+  >
+    Hide Footer
+  </button>
+  <button
+    onclick="document.getElementById('tm-iframe').contentWindow.postMessage({
+ type: 'player.setControls',
+ data: {
+ footer: true,
+ }
+}, 'https://remotestaff.teramind.co');"
+  >
+    Show Footer
+  </button>
+  <button
+    onclick="document.getElementById('tm-iframe').contentWindow.postMessage({
+ type: 'player.takeScreenShot',
+}, 'https://remotestaff.teramind.co');"
+  >
+    Screenshot
+  </button>
+  <script>
+    window.addEventListener("message", (event) => {
+      console.log(event);
+      if (
+        event.data.type === "ready" &&
+        event.data.data === "https://remotestaff.teramind.co/"
+      ) {
+        document.getElementById("tm-iframe").contentWindow.postMessage(
+          {
+            type: "player.switch",
+            data: {
+              agentId: 120,
+              computerId: 6,
+              timestamp: 1681929594,
+              controls: {
+                header: false,
+                footer: false
+              }
+            }
+          },
+          "https://remotestaff.teramind.co"
+        );
+      }
+    });
+  </script>
+</html>
